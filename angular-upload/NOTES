@@ -1,0 +1,38 @@
+
+editor
+https://atom.io/docs/v0.61.0/getting-started
+
+https://github.com/nervgh/angular-file-upload/blob/master/angular-file-upload.js
+https://github.com/nervgh/angular-file-upload/blob/master/examples/simple/index.html
+
+https://docs.angularjs.org/guide/directive
+http://www.ng-newsletter.com/posts/directives.html
+https://docs.angularjs.org/api/ng/service/$parse
+
+http://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html#googprovide
+https://developers.google.com/closure/library/docs/gettingstarted
+
+
+
+http://stackoverflow.com/questions/16631702/file-pick-with-angular-js
+
+Angular doesn't yet support ng-change for input[type=file] so you have to roll onchange implementation yourself.
+
+First, in the HTML, define Javascript for onchange as follows:
+
+<input ng-model="photo"
+       onchange="angular.element(this).scope().file_changed(this)"
+       type="file" accept="image/*" />
+And then in your Angular controller code, define the function:
+
+$scope.file_changed = function(element, $scope) {
+
+     $scope.$apply(function(scope) {
+         var photofile = element.files[0];
+         var reader = new FileReader();
+         reader.onload = function(e) {
+            ...
+         };
+         reader.readAsDataURL(photofile);
+     });
+});
