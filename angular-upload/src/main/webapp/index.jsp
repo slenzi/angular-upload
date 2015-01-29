@@ -36,7 +36,7 @@
 		</div>
 
 		<p>
-		Hello! CLick the "Debug Test" button and view the output in the javascript console.
+		Hello! Click the "Debug Test" button and view the output in the javascript console.
 		</p>
 
 		<p>
