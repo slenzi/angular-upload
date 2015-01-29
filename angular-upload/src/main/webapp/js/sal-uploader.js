@@ -3,11 +3,6 @@ Angular HTTP upload module
 -sal
 */
 
-/*
-Sample application to test sal-uploader module
--sal
-*/
-
 (function () {
 	
 	'use strict';
@@ -15,15 +10,49 @@ Sample application to test sal-uploader module
 	var salUploadModule;
 	
 	// create module named 'salUpload'
-	salUploadModule = angular.module('salUpload',[]);
+	salUploadModule = angular.module('salUpload', []);
 	
 	// set default options
-	salUploadModule.value('uploadOptions', {
+	salUploadModule.value('fileUploaderOptions', {
 		url: '/',
 		progress: 0,
 		method: 'POST',
 		formData: [],
 		headers: {}
-	});
+	})
+	.factory('FileUploader', ['fileUploaderOptions', '$http',
+	    
+	    /**
+	     * Factory method which returns FileUploader object prototype.
+	     */                      
+	    function fileUploaderFactory(fileUploaderOptions, $http){
+			
+			/**
+			 * Create instance of FileUploader from object prototype.
+			 * 
+			 * @param {Object} [options]
+			 * @constructor
+			 */
+			function FileUploader(options){
+				var uploaderSettings = angular.copy(options);
+				angular.extend(this, uploaderSettings);
+			}
+			
+			/**
+			 * Produces a simple hello message.
+			 * 
+			 * @returns {String}
+			 */
+			FileUploader.prototype.hello = function(){
+				return 'Hello, use are using ' + this.constructor.name + '. Have a nice day.';
+			};
+			
+			// return object prototype
+			return FileUploader;
+			
+		}
+	]);
+	
+	return salUploadModule;
 	
 })();
