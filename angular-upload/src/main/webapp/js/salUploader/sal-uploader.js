@@ -91,7 +91,7 @@ Angular HTTP upload module
 				if (!(uploader instanceof FileUploader)) {
 					throw new TypeError('"Uploader" must be an instance of FileUploader');
 				}
-				//alert("Yo!");
+				alert("Uploader is HTML 5 = " + uploader.isHTML5);
 
 			}
 		};
