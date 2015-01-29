@@ -34,8 +34,8 @@ Angular HTTP upload module
 			 * @constructor
 			 */
 			function FileUploader(options){
-				var uploaderSettings = angular.copy(options);
-				angular.extend(this, uploaderSettings);
+				var defaultOptions = angular.copy(fileUploaderOptions);
+				angular.extend(this, defaultOptions, options);
 			}
 			
 			/**
