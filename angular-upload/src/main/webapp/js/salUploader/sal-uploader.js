@@ -83,16 +83,24 @@ Angular HTTP upload module
 			*/
 			restrict: 'A',
 
-			link: function(scope, element, attributes) {
+			/*
+			element - jQlite object
+			*/
+			link: function($scope, element, attributes) {
 
-				// get reference to FileUploader
-				var uploader = scope.$eval(attributes.uploader);
+				var elm = element[0];
+
+				// get reference to FileUploader object
+				var uploader = $scope.$eval(attributes.uploader);
 
 				if (!(uploader instanceof FileUploader)) {
 					throw new TypeError('"Uploader" must be an instance of FileUploader');
 				}
-				alert("Uploader is HTML 5 = " + uploader.isHTML5);
-
+				console.log("typeof(element) = " + typeof(element));
+				console.log("element.html() = " + element.html());
+				console.log("elm.nodeName = " + elm.nodeName);
+				console.log("attributes.uploader = " + attributes.uploader);
+				console.log("Uploader is HTML 5 = " + uploader.isHTML5);
 			}
 		};
 	}]);

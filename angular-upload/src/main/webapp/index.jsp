@@ -36,7 +36,7 @@
 		</div>
 
 		<p>
-		Hello! Click the "Debug Test" button and view the output in the javascript console.
+		Hello! CLick the "Debug Test" button and view the output in the javascript console.
 		</p>
 
 		<p>
@@ -44,7 +44,7 @@
 		</p>
 
         <p>
-        Files: <input type="file" sal-upload-file-select="" uploader="myUploader" multiple  />
+        Files: <input type="file" id="fileInput" sal-upload-file-select="" uploader="myUploader" multiple  />
         </p>
 
         <p>
