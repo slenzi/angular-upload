@@ -56,14 +56,6 @@
         Sal Upload Debug:<br>
         <sal-upload-debug uploader="myUploader"></sal-upload-debug>
         </p>
-        
-        <p>
-        $parse test:<br>
-        <input type="text" placeholder="Enter some text" ng-model="myWatch" my-watch-directive />
-        </p>
-        <p>
-        {{ myWatch }}
-        </p>
 
 		<!-- In production use:
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

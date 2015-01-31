@@ -72,17 +72,6 @@ Angular HTTP upload module
 			template: '<span> {{ uploaderObj }} </span>'
 		};
 	}])
-	.directive('myWatchDirective', function() {
-		function myLink(scope, element, attrs){
-			scope.$watch(attrs.ngModel,function(value){
-				console.log('Value has changed, new value is: ' + value);
-			});
-		};
-		return {
-			restrict: 'A',
-			link: myLink
-		};
-	})
 	.directive('salUploadFileSelect', ['$parse','FileUploader', function($parse, FileUploader) {
 		return {
 
