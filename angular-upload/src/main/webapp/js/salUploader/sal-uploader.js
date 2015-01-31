@@ -72,7 +72,18 @@ Angular HTTP upload module
 			template: '<span> {{ uploaderObj }} </span>'
 		};
 	}])
-	.directive('salUploadFileSelect', ['FileUploader', function(FileUploader) {
+	.directive('myWatchDirective', function() {
+		function myLink(scope, element, attrs){
+			scope.$watch(attrs.ngModel,function(value){
+				console.log('Value has changed, new value is: ' + value);
+			});
+		};
+		return {
+			restrict: 'A',
+			link: myLink
+		};
+	})
+	.directive('salUploadFileSelect', ['$parse','FileUploader', function($parse, FileUploader) {
 		return {
 
 			/*
@@ -88,19 +99,24 @@ Angular HTTP upload module
 			*/
 			link: function($scope, element, attributes) {
 
-				var elm = element[0];
+				var elm = element[0]; // convert angular jQlite element to raw DOM element
 
 				// get reference to FileUploader object
 				var uploader = $scope.$eval(attributes.uploader);
 
 				if (!(uploader instanceof FileUploader)) {
-					throw new TypeError('"Uploader" must be an instance of FileUploader');
+					throw new TypeError('Uploader must be an instance of FileUploader');
 				}
-				console.log("typeof(element) = " + typeof(element));
-				console.log("element.html() = " + element.html());
-				console.log("elm.nodeName = " + elm.nodeName);
-				console.log("attributes.uploader = " + attributes.uploader);
-				console.log("Uploader is HTML 5 = " + uploader.isHTML5);
+				
+				console.log('typeof(element) = ' + typeof(element));
+				console.log('element.html() = ' + element.html());
+				console.log('elm.nodeName = ' + elm.nodeName);
+				console.log('attributes.uploader = ' + attributes.uploader);
+				console.log('Uploader is HTML 5 = ' + uploader.isHTML5);
+				
+				element.bind('change',function(){
+					alert('files changed');
+				});
 			}
 		};
 	}]);

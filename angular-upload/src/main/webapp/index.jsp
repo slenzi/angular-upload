@@ -36,7 +36,7 @@
 		</div>
 
 		<p>
-		Hello! CLick the "Debug Test" button and view the output in the javascript console.
+		Hello! Click the "Debug Test" button and view the output in the JavaScript console.
 		</p>
 
 		<p>
@@ -44,11 +44,25 @@
 		</p>
 
         <p>
-        Files: <input type="file" id="fileInput" sal-upload-file-select="" uploader="myUploader" multiple  />
+        Files: <input type="file" sal-upload-file-select="" uploader="myUploader" multiple  />
+        </p>
+        
+        <p>
+        Selected Files:
+        <li ng-repeat="file in myFiles">{{file.name}}</li>
         </p>
 
         <p>
+        Sal Upload Debug:<br>
         <sal-upload-debug uploader="myUploader"></sal-upload-debug>
+        </p>
+        
+        <p>
+        $parse test:<br>
+        <input type="text" placeholder="Enter some text" ng-model="myWatch" my-watch-directive />
+        </p>
+        <p>
+        {{ myWatch }}
         </p>
 
 		<!-- In production use:
@@ -64,7 +78,7 @@
 		<!--
 		<script src="bower_components/ng-grid/ng-grid-2.0.12.min.js"></script>
 		-->
-		<script src="js/app/app.js"></script>
+		<script src="js/app/app_style_2.js"></script>
 		<script src="js/salUploader/sal-uploader.js"></script>
 
 	</div>
